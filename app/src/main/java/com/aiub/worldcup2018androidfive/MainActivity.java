@@ -1,6 +1,5 @@
 package com.aiub.worldcup2018androidfive;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.aiub.worldcup2018androidfive.Activities.SettingsActivity;
 import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.OneFragment;
+import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.SettingsFragment;
 import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.TwoFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -106,8 +105,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_stadiums) {
 
         } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.framelayout, new SettingsFragment());
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle("Settings");
         } else if (id == R.id.nav_privacy) {
 
         } else if (id == R.id.nav_recommendation) {

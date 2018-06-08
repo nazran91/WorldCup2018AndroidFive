@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAppBackground"
-    tools:context=".Activities.SettingsActivity">
+    android:background="@color/colorAppBackground">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -58,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
+                android:theme="@style/MySwitch"
                 app:layout_constraintBaseline_toBaselineOf="@+id/notification_on"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -91,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
+                android:theme="@style/MySwitch"
                 app:layout_constraintBaseline_toBaselineOf="@+id/soundOnText"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -124,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
+                android:theme="@style/MySwitch"
                 app:layout_constraintBaseline_toBaselineOf="@+id/vibrationText"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -157,6 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
+                android:theme="@style/MySwitch"
                 app:layout_constraintBaseline_toBaselineOf="@+id/popUpText"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -166,9 +170,10 @@
                 android:layout_height="2dp"
                 android:layout_marginTop="24dp"
                 android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popUpText"
-                tools:background="@color/colorAccent"
-                tools:layout_editor_absoluteX="0dp" />
+                tools:background="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/selectTeamsText"
@@ -211,8 +216,140 @@
                 android:layout_height="2dp"
                 android:layout_marginTop="24dp"
                 android:background="@color/colorAccent"
-                app:layout_constraintTop_toBottomOf="@+id/teamsText"
-                tools:layout_editor_absoluteX="0dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/teamsText" />
+
+            <TextView
+                android:id="@+id/personalizeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="Personalize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/teamsBottomView" />
+
+            <TextView
+                android:id="@+id/notificationSoundText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="Notification Sound"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toEndOf="@+id/notificationSoundIcon"
+                app:layout_constraintTop_toBottomOf="@+id/personalizeText" />
+
+            <ImageView
+                android:id="@+id/notificationSoundIcon"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/notificationSoundText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/notificationSoundText"
+                app:srcCompat="@drawable/ic_volume_up_black_24dp" />
+
+            <View
+                android:id="@+id/notificationSoundBottomView"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationSoundText" />
+
+            <TextView
+                android:id="@+id/moreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="More"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notificationSoundBottomView" />
+
+            <TextView
+                android:id="@+id/supportText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="Support"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toEndOf="@+id/supportIcon"
+                app:layout_constraintTop_toBottomOf="@+id/moreText" />
+
+            <ImageView
+                android:id="@+id/supportIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/supportText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/supportText"
+                app:srcCompat="@drawable/ic_chat_bubble_black_24dp" />
+
+            <TextView
+                android:id="@+id/legalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="Legal"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toEndOf="@+id/legalIcon"
+                app:layout_constraintTop_toBottomOf="@+id/supportText" />
+
+            <ImageView
+                android:id="@+id/legalIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/legalText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/legalText"
+                app:srcCompat="@drawable/ic_chat_bubble_black_24dp" />
+
+            <TextView
+                android:id="@+id/privacyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="Privacy Settings"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/privacyIcon"
+                app:layout_constraintTop_toBottomOf="@+id/legalText" />
+
+            <ImageView
+                android:id="@+id/privacyIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/privacyText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/privacyText"
+                app:srcCompat="@drawable/ic_lock_black_24dp" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

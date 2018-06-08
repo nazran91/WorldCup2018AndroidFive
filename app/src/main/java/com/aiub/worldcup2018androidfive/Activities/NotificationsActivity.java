@@ -37,7 +37,7 @@ public class NotificationsActivity extends AppCompatActivity {
         dataList.add(item);
 
         item = new NotificationItem("http://icons.iconarchive.com/icons/custom-icon-design/flag-3/256/Brazil-Flag-icon.png",
-                "Brazil", true);
+                "Brazil", false);
         dataList.add(item);
 
         item = new NotificationItem("https://cdn2.iconfinder.com/data/icons/all-in-one-country-flag-2/256/Germany-flag.png",

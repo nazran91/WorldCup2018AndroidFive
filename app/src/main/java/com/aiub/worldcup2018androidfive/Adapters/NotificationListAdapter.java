@@ -6,13 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aiub.worldcup2018androidfive.ModelClasses.NotificationItem;
 import com.aiub.worldcup2018androidfive.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NotificationListAdapter extends BaseAdapter {
 
@@ -46,10 +50,16 @@ public class NotificationListAdapter extends BaseAdapter {
                 .from(context)
                 .inflate(R.layout.notification_list_item, parent, false);
 
+        NotificationItem item = dataList.get(position);
+
         TextView countryNameText = view.findViewById(R.id.countryNameText);
-        countryNameText.setText(dataList.get(position).getCountryName());
+        countryNameText.setText(item.getCountryName());
+
+        CircleImageView flag = view.findViewById(R.id.flagIcon);
+        Picasso.get().load(item.getFlagUrl()).into(flag);
 
         CheckBox isNotifiedCheckBox = view.findViewById(R.id.isNotifiedCheckBox);
+        isNotifiedCheckBox.setChecked(item.isNotified());
 
         return view;
     }
