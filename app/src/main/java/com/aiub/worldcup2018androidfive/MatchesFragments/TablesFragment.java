@@ -1,4 +1,4 @@
-package com.aiub.worldcup2018androidfive.NavigationDrawerFragments;
+package com.aiub.worldcup2018androidfive.MatchesFragments;
 
 
 import android.os.Bundle;
@@ -9,14 +9,13 @@ import android.view.ViewGroup;
 
 import com.aiub.worldcup2018androidfive.R;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OneFragment extends Fragment {
+public class TablesFragment extends Fragment {
 
 
-    public OneFragment() {
+    public TablesFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +24,7 @@ public class OneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_one, container, false);
+        return inflater.inflate(R.layout.fragment_tables, container, false);
     }
 
 }
