@@ -7,7 +7,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/groupItemCardView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -44,9 +44,9 @@
                 android:id="@+id/flagOne"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/flagTwo"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/groupName" />
 
@@ -54,9 +54,9 @@
                 android:id="@+id/flagTwo"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/flagThree"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/flagOne"
                 app:layout_constraintTop_toBottomOf="@+id/groupName" />
 
@@ -64,9 +64,9 @@
                 android:id="@+id/flagThree"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/flagFour"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/flagTwo"
                 app:layout_constraintTop_toBottomOf="@+id/groupName" />
 
@@ -74,12 +74,9 @@
                 android:id="@+id/flagFour"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/flagThree"
                 app:layout_constraintTop_toBottomOf="@+id/groupName" />
 
