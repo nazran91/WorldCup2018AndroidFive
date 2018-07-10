@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.aiub.worldcup2018androidfive.Database.DatabaseHelper;
 import com.aiub.worldcup2018androidfive.R;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,11 +21,14 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private static final String TAG = SplashScreenActivity.class.getSimpleName();
     private String API_URL = "https://raw.githubusercontent.com/lsv/fifa-worldcup-2018/master/data.json";
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_scren);
+
+        databaseHelper = new DatabaseHelper(SplashScreenActivity.this);
 
         getJSONData();
     }
@@ -45,13 +49,24 @@ public class SplashScreenActivity extends AppCompatActivity {
                     for (int i = 0; i < stadiums.length(); i++) {
                         JSONObject jsonObject = stadiums.getJSONObject(i);
 
-                        Log.e(TAG, ""+jsonObject.getInt("id"));
-                        Log.e(TAG, ""+jsonObject.getString("name"));
-                        Log.e(TAG, ""+jsonObject.getString("city"));
-                        Log.e(TAG, ""+jsonObject.getDouble("lat"));
-                        Log.e(TAG, ""+jsonObject.getDouble("lng"));
-                        Log.e(TAG, ""+jsonObject.getString("image"));
+                        Log.e(TAG, "" + jsonObject.getInt("id"));
+                        Log.e(TAG, "" + jsonObject.getString("name"));
+                        Log.e(TAG, "" + jsonObject.getString("city"));
+                        Log.e(TAG, "" + jsonObject.getDouble("lat"));
+                        Log.e(TAG, "" + jsonObject.getDouble("lng"));
+                        Log.e(TAG, "" + jsonObject.getString("image"));
                     }
+
+                    JSONArray teams = response.getJSONArray("teams");
+
+                    for (int i = 0; i < teams.length(); i++) {
+                        JSONObject team = teams.getJSONObject(i);
+
+                        int id = team.getInt("id");
+                        String name = team.getString("name");
+                        String fifaCode = team.getString("fifaCode");
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
