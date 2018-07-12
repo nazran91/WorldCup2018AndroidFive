@@ -5,6 +5,10 @@ public class Team {
     int id;
     String name, fifaCode, flag;
 
+    public Team() {
+
+    }
+
     // ALT+insert
     public Team(int id, String name, String fifaCode, String flag) {
         this.id = id;

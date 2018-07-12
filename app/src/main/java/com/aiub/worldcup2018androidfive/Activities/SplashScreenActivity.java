@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.aiub.worldcup2018androidfive.Database.DatabaseHelper;
+import com.aiub.worldcup2018androidfive.ModelClasses.Team;
 import com.aiub.worldcup2018androidfive.R;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,11 +18,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     private static final String TAG = SplashScreenActivity.class.getSimpleName();
     private String API_URL = "https://raw.githubusercontent.com/lsv/fifa-worldcup-2018/master/data.json";
     private DatabaseHelper databaseHelper;
+    private List<Team> teamList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_scren);
 
         databaseHelper = new DatabaseHelper(SplashScreenActivity.this);
+        teamList = databaseHelper.getAllTeams();
 
         getJSONData();
     }
@@ -65,6 +71,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                         int id = team.getInt("id");
                         String name = team.getString("name");
                         String fifaCode = team.getString("fifaCode");
+
+                        Team teamObject = new Team(id, name, fifaCode, null);
+                        databaseHelper.addTeam(teamObject);
                     }
 
                 } catch (JSONException e) {
