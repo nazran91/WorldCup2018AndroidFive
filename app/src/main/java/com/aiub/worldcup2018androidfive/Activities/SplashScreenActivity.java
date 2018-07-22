@@ -27,6 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private String API_URL = "https://raw.githubusercontent.com/lsv/fifa-worldcup-2018/master/data.json";
     private DatabaseHelper databaseHelper;
     private List<Team> teamList = new ArrayList<>();
+    private String[] groupNames = new String[]{"a", "b", "c", "d", "e", "f", "g", "h"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,25 @@ public class SplashScreenActivity extends AppCompatActivity {
                         databaseHelper.addTeam(teamObject);
                     }
 
+                    JSONObject groups = response.getJSONObject("groups");
+
+                    for (int k = 0; k < groupNames.length; k++) {
+                        JSONObject group = groups.getJSONObject(groupNames[k]);
+
+                        JSONArray matches = group.getJSONArray("matches");
+
+                        for (int i = 0; i < matches.length(); i++) {
+                            JSONObject match = matches.getJSONObject(i);
+
+                            int name = match.getInt("name");
+                            int home_team = match.getInt("home_team");
+                            int away_team = match.getInt("away_team");
+                            int home_result = match.getInt("home_result");
+                            int away_result = match.getInt("away_result");
+                            int stadium = match.getInt("stadium");
+                            String date = match.getString("date");
+                        }
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

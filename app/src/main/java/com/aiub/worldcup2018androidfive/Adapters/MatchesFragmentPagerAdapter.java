@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.aiub.worldcup2018androidfive.MatchesFragments.MatchesFragment;
-import com.aiub.worldcup2018androidfive.MatchesFragments.ScheduleFragment;
-import com.aiub.worldcup2018androidfive.MatchesFragments.TablesFragment;
+import com.aiub.worldcup2018androidfive.ScheduleFragments.MatchesFragment;
+import com.aiub.worldcup2018androidfive.ScheduleFragments.ScheduleFragment;
+import com.aiub.worldcup2018androidfive.ScheduleFragments.TablesFragment;
 
 public class MatchesFragmentPagerAdapter extends FragmentPagerAdapter {
 

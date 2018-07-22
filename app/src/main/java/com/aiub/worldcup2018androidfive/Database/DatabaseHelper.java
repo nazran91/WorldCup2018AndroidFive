@@ -23,6 +23,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TEAM_FLAG_URL = "team_flag_url";
     private static final String TEAM_GROUP_NAME = "team_group_name";
 
+    private static final String MATCH_TABLE_NAME = "matches";
+    private static final String MATCH_NAME = "name";
+    private static final String MATCH_HOME_TEAM = "home_team";
+    private static final String MATCH_AWAY_TEAM = "away_team";
+    private static final String MATCH_HOME_RESULT = "home_result";
+    private static final String MATCH_AWAY_RESULT = "away_result";
+    private static final String MATCH_STADIUM = "stadium";
+    private static final String MATCH_DATE = "date";
+    private static final String MATCH_STAGE = "stage";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -40,6 +50,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + TEAM_FLAG_URL + " TEXT DEFAULT NULL, "
                 + TEAM_GROUP_NAME + " TEXT DEFAULT NULL)";
         db.execSQL(CREATE_TEAMS_TABLE);
+        String CREATE_MATCHES_TABLE = "CREATE TABLE " + MATCH_TABLE_NAME + " ("
+                + MATCH_NAME + " INTEGER PRIMARY KEY, "
+                + MATCH_HOME_TEAM + " INTEGER, "
+                + MATCH_AWAY_TEAM + " INTEGER, "
+                + MATCH_HOME_RESULT + " INTEGER , "
+                + MATCH_AWAY_RESULT + " INTEGER , "
+                + MATCH_STADIUM + " INTEGER , "
+                + MATCH_DATE + " TEXT ,"
+                + MATCH_STAGE + " TEXT)";
+        db.execSQL(CREATE_MATCHES_TABLE);
     }
 
     @Override

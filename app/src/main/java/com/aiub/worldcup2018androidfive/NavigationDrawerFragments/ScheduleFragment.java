@@ -16,12 +16,12 @@ import com.aiub.worldcup2018androidfive.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DrawerMatchesFragment extends Fragment {
+public class ScheduleFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    public DrawerMatchesFragment() {
+    public ScheduleFragment() {
         // Required empty public constructor
     }
 

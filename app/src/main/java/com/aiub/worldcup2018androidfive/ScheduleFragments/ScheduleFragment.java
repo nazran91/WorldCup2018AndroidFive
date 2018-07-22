@@ -1,4 +1,4 @@
-package com.aiub.worldcup2018androidfive.MatchesFragments;
+package com.aiub.worldcup2018androidfive.ScheduleFragments;
 
 
 import android.os.Bundle;

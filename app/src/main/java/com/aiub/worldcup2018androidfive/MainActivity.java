@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.DrawerMatchesFragment;
+import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.ScheduleFragment;
 import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.SettingsFragment;
 import com.aiub.worldcup2018androidfive.NavigationDrawerFragments.TwoFragment;
 
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_schedule) {
             FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.framelayout, new DrawerMatchesFragment());
+            fragmentTransaction.replace(R.id.framelayout, new ScheduleFragment());
             fragmentTransaction.commit();
         } else if (id == R.id.nav_matches) {
             FragmentTransaction fragmentTransaction =
