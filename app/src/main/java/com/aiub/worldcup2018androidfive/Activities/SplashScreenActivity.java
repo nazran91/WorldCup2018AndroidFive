@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.aiub.worldcup2018androidfive.Database.DatabaseHelper;
+import com.aiub.worldcup2018androidfive.ModelClasses.MatchModel;
 import com.aiub.worldcup2018androidfive.ModelClasses.Team;
 import com.aiub.worldcup2018androidfive.R;
 import com.android.volley.Request;
@@ -94,6 +95,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                             int away_result = match.getInt("away_result");
                             int stadium = match.getInt("stadium");
                             String date = match.getString("date");
+
+                            MatchModel matchModel = new MatchModel(name, home_team, away_team, home_result,
+                                    away_result, stadium, date, groupNames[k]);
+                            databaseHelper.addMatch(matchModel);
                         }
                     }
                 } catch (JSONException e) {

@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
+import com.aiub.worldcup2018androidfive.ModelClasses.MatchModel;
 import com.aiub.worldcup2018androidfive.ModelClasses.Team;
 
 import java.util.ArrayList;
@@ -64,8 +66,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String DROP_TABLE = "DROP TABLE IF EXISTS " + TEAM_TABLE_NAME;
-        db.execSQL(DROP_TABLE);
+        String DROP_TEAM_TABLE = "DROP TABLE IF EXISTS " + TEAM_TABLE_NAME;
+        db.execSQL(DROP_TEAM_TABLE);
+        String DROP_MATCH_TABLE = "DROP TABLE IF EXISTS " + MATCH_TABLE_NAME;
+        db.execSQL(DROP_MATCH_TABLE);
     }
 
     public void addTeam(Team team) {
@@ -78,6 +82,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.insert(TEAM_TABLE_NAME, null, contentValues);
 
+        sqLiteDatabase.close();
+    }
+
+    public void addMatch(MatchModel matchModel) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MATCH_NAME, matchModel.getName());
+        contentValues.put(MATCH_HOME_TEAM, matchModel.getHome_team());
+        contentValues.put(MATCH_AWAY_TEAM, matchModel.getAway_team());
+        contentValues.put(MATCH_HOME_RESULT, matchModel.getHome_result());
+        contentValues.put(MATCH_AWAY_RESULT, matchModel.getAway_result());
+        contentValues.put(MATCH_DATE, matchModel.getDate());
+        contentValues.put(MATCH_STADIUM, matchModel.getStadium());
+        contentValues.put(MATCH_STAGE, matchModel.getStage());
+
+        long rowId = sqLiteDatabase.insert(MATCH_TABLE_NAME, null, contentValues);
+        Log.e("Database", "" + rowId);
         sqLiteDatabase.close();
     }
 
